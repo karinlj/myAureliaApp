@@ -1,5 +1,7 @@
 export class Todo {
-	constructor() {
-		this.message = 'todo';
+	constructor(description) {
+		this.description = description;
+		this.done = false;
+		//this.message = 'todo';
 	}
 }
