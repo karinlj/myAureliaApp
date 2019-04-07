@@ -3,8 +3,9 @@
   <section class="content-section">
 
     <h1>${message}</h1>
+
     <ul class="todoList">
-      <li repeat.for="todo of TodoList">
+      <li repeat.for="todo of todoList">
         <!-- binding any boolean value -->
         <input type="checkbox" checked.bind="todo.done">
         <span css="text-decoration: ${todo.done ? 'line-through': 'none'}">${todo.description}</span>

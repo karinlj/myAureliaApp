@@ -1,0 +1,65 @@
+/* .card {
+	margin-bottom: 2rem;
+	img {
+		max-width: 120px;
+	}
+} */
+
+.card {
+	margin-bottom: 2rem;
+	//height: 50rem;
+	@media screen and (max-width: 400px) {
+		//height: 60rem;
+	}
+	@media screen and (min-width: 640px) {
+		//height: 30rem;
+	}
+	.card-title {
+		color: @primary-color;
+		//color: green;
+		//font-size: 22px;
+	}
+	.card-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		//align-items: stretch;
+		@media screen and (min-width: 640px) {
+			flex-direction: row;
+		}
+		.pict {
+			flex: 1 1 20%;
+			margin-bottom: 1.5rem;
+			img {
+				padding-right: 1rem;
+				max-width: 120px;
+				@media screen and (max-width: 400px) {
+					max-width: 140px;
+				}
+				@media screen and (min-width: 1500px) {
+					max-width: 140px;
+				}
+			}
+			@media screen and (min-width: 640px) {
+				margin-bottom: 0;
+			}
+		}
+		.book-facts {
+			flex: 1 1 60%;
+			.book-items {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				li {
+					padding-bottom: 0.8rem;
+					span.book-label {
+						color: #999;
+					}
+				}
+			}
+		}
+		.loan-btn {
+			flex: 1 1 20%;
+		}
+	}
+}

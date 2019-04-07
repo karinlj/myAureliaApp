@@ -17,13 +17,20 @@ export class App {
 				nav: true,
 				moduleId: PLATFORM.moduleName('./modules/todoList/todo-list'),
 			},
-			/*  {
-				route: '',
-				name: 'home',
-				title: 'Home',
+			{
+				route: 'booklist',
+				name: 'booklist',
+				title: 'Booklist',
 				nav: true,
-				moduleId: PLATFORM.moduleName('./modules/home/home'),
-			}, */
+				moduleId: PLATFORM.moduleName('./modules/booklist/booklist'),
+			},
+			{
+				route: 'single/:slug',
+				name: 'single',
+				title: '',
+				//nav: true,
+				moduleId: PLATFORM.moduleName('./modules/singleBook/single'),
+			},
 		]);
 	}
 }

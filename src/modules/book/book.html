@@ -1,0 +1,58 @@
+<template>
+  <!-- bindable custom element with prop=book and linked-->
+
+
+  <div class="card">
+    <div class="card-header">
+
+      <a if.bind="linked" route-href="route: single; params.bind: {slug: book.slug}">
+        <h3 class="card-title">${book.title}</h3>
+      </a>
+
+      <h3 if.bind="!linked" class="card-title">${book.title}</h3>
+    </div>
+    <div class="card-body">
+
+      <div class="card-container">
+        <div class="pict">
+
+          <a if.bind="linked" route-href="route: single; params.bind: {slug: book.slug}">
+
+            <!-- <img src.bind="book.image" alt="book"> -->
+            <img src="/pyramid-of-mud.jpg" alt="book">
+          </a>
+
+          <!--  <img if.bind="!linked" src.bind="book.image" alt="book"> -->
+          <img if.bind="!linked" src="/pyramid-of-mud.jpg" alt="book">
+
+        </div>
+
+
+        <div class="book-facts">
+          <ul class="book-items">
+            <li>
+              <span class="book-label">Av&nbsp;</span> ${book.author}
+            </li>
+            <!--    <li>
+              <span class=" book-label">ISBN&nbsp;</span> ${book.isbn}
+            </li> -->
+            <!--      <li>
+              <span class="book-label">Genre &nbsp;</span>
+              <span repeat.for="genre of book.genres">
+                ${genre.name + ','}
+              </span>
+            </li> -->
+            <!--    <li>
+              ${book.content}
+            </li> -->
+          </ul>
+        </div>
+
+        <div class="loan-btn">
+          <button type="button" class="btn" click.delegate="loanFunc()">LÅNA</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,32 @@
+<template>
+  <require from="../book/book"></require>
+  <!-- <error-message error.bind="error"></error-message> -->
+
+  <section class="content-section booklist">
+    <h1 class="underline">${title}</h1>
+
+    <div class="row">
+      <!-- repeater -->
+      <div class="col-lg-6" repeat.for="book of books">
+
+        <!-- custom element with prop=book -->
+        <book book.bind="book" linked.bind="true"></book>
+
+      </div>
+    </div>
+  </section>
+</template>
+
+
+<!--   <h2 class="">${subHeading}</h2>
+    <!-- genre selector -->
+<!--   <label>
+      Select genre:<br>
+      <select value.bind="selectedAnimalId">
+
+        <option repeat.for="genre of genres" model.bind="genre.id">
+          ${genre.id} - ${genre.name}
+        </option>
+      </select>
+    </label>
+    Selected genre ID: ${selectedGenreId} -->
