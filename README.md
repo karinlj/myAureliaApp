@@ -26,7 +26,7 @@ To run
 
 ## Inpiration
 
-Travery Media
+Traversy Media
 
 ```https://www.youtube.com/watch?v=DZg6UfS5zYg&t=250s```
 
