@@ -24,6 +24,11 @@ To run
 
 `au run`, then open `http://localhost:8080`
 
+## Inpiration
+
+```https://www.youtube.com/watch?v=DZg6UfS5zYg&t=250s```
+
+
 
 
 
