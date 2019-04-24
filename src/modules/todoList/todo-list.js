@@ -6,7 +6,6 @@ export class TodoList {
 
 	constructor() {
 		//when using Todo, we have to pass a description
-
 		this.todoList.push(new Todo('Cuddle with cats'));
 		this.todoList.push(new Todo('Sleep some more'));
 		this.todoList.push(new Todo('Take a walk'));

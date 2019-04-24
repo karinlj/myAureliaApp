@@ -1,18 +1,17 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import environment from './environment';
-import {PLATFORM} from 'aurelia-pal';
+import { PLATFORM } from 'aurelia-pal';
 
 export function configure(aurelia) {
-  aurelia.use
-    .standardConfiguration()
-    .feature(PLATFORM.moduleName('resources/index'));
+	aurelia.use.standardConfiguration().feature(PLATFORM.moduleName('resources/index'));
+	//.plugin(PLATFORM.moduleName('aurelia-dialog'));
 
-  aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
+	aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
 
-  if (environment.testing) {
-    aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
-  }
+	if (environment.testing) {
+		aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
+	}
 
-  aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
+	aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
 }

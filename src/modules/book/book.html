@@ -1,55 +1,50 @@
 <template>
   <!-- bindable custom element with prop=book and linked-->
-
-
+  <!--   if statement to filter by genre -->
   <div class="card">
-    <div class="card-header">
-
-      <a if.bind="linked" route-href="route: single; params.bind: {slug: book.slug}">
-        <h3 class="card-title">${book.title}</h3>
-      </a>
-
-      <h3 if.bind="!linked" class="card-title">${book.title}</h3>
-    </div>
     <div class="card-body">
-
       <div class="card-container">
         <div class="pict">
-
           <a if.bind="linked" route-href="route: single; params.bind: {slug: book.slug}">
 
-            <!-- <img src.bind="book.image" alt="book"> -->
-            <img src="/pyramid-of-mud.jpg" alt="book">
+            <img src.bind="book.image" alt="book">
           </a>
 
-          <!--  <img if.bind="!linked" src.bind="book.image" alt="book"> -->
-          <img if.bind="!linked" src="/pyramid-of-mud.jpg" alt="book">
-
+          <img if.bind="!linked" src.bind="book.image" alt="book">
         </div>
-
 
         <div class="book-facts">
           <ul class="book-items">
             <li>
+              <a if.bind="linked" route-href="route: single; params.bind: {slug: book.slug}">
+                <h4 class="card-title">${book.title}</h4>
+              </a>
+
+              <h4 if.bind="!linked" class="card-title">${book.title}</h4>
+            </li>
+            <li>
               <span class="book-label">Av&nbsp;</span> ${book.author}
             </li>
-            <!--    <li>
+            <li>
               <span class=" book-label">ISBN&nbsp;</span> ${book.isbn}
-            </li> -->
-            <!--      <li>
+            </li>
+            <li>
+              <!-- map här -->
               <span class="book-label">Genre &nbsp;</span>
-              <span repeat.for="genre of book.genres">
+              <span>${book.genres}</span>
+
+              <!--  <span repeat.for="genre of genres">
                 ${genre.name + ','}
-              </span>
-            </li> -->
-            <!--    <li>
+              </span> -->
+            </li>
+            <li if.bind="!linked">
               ${book.content}
-            </li> -->
+            </li>
           </ul>
         </div>
 
         <div class="loan-btn">
-          <button type="button" class="btn" click.delegate="loanFunc()">LÅNA</button>
+          <button type="button" class="btn" click.delegate="onSubmit()">BORROW</button>
         </div>
 
       </div>

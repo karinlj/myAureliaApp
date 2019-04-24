@@ -1,21 +1,37 @@
 import { Router } from 'aurelia-router';
 import { inject } from 'aurelia-framework';
+import books from '../../services/book-service';
 
 @inject(Router)
 export class Single {
 	//
 	constructor(router) {
 		this.router = router;
-		this.message = 'Hello Single';
-
-		//this.book = null;
+		this.books = books;
+		this.book = null;
 	}
 
-	/* 	async attached() {
+	async attached() {
 		this.title = '';
+		//same as React:   let id = this.props.match.params.post_id;
+		let slug = this.router.currentInstruction.params['slug'];
+		console.log(slug);
 
-		 	let slug = this.router.currentInstruction.params['slug'];
-		let response await this.httpClient.fetch('api/books/' + ${slug});
-		this.book = await response.json(); 
-	} */
+		let book = this.books.find(book => {
+			return book.slug.toLowerCase() === slug.toLowerCase();
+		});
+		this.book = book;
+
+		//samma sak:
+		// let book = this.books.find(
+		// 	book => book.slug.toLowerCase() === slug.toLowerCase()
+		// );
+
+		// let book = this.books.find(book => book.slug);
+
+		// let book = this.books.find(book => {
+		// 	return book.slug;
+		// });
+		//Bitmask
+	}
 }

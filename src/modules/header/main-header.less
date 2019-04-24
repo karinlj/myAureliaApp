@@ -1,0 +1,28 @@
+header.main-header {
+	position: relative;
+	height: 280px;
+	background: url('/booksSmallTwo.jpg') no-repeat center;
+	background-size: cover;
+	margin-bottom: 2rem;
+	&:before {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0, 0, 0, 0.3);
+		content: '';
+		display: block;
+	}
+
+	.header-wrapper {
+		position: relative;
+		height: 280px;
+		h1 {
+			color: #fff;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+}

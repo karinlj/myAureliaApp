@@ -1,32 +1,46 @@
 <template>
   <require from="../book/book"></require>
+  <require from="../header/main-header.html"></require>
   <!-- <error-message error.bind="error"></error-message> -->
 
+  <main-header page-title.bind="pageTitle"></main-header>
+
   <section class="content-section booklist">
-    <h1 class="underline">${title}</h1>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-1">
 
-    <div class="row">
-      <!-- repeater -->
-      <div class="col-lg-6" repeat.for="book of books">
+          <section class="genre-section" if.bind="genres.length > 0">
+            <h4>${subTitle}</h4>
+            <select class="form-control" name="genrelist" value.bind="selectedGenre">
+              <option repeat.for="genre of genres">${genre.name}</option>
+            </select>
+            <!-- <p>selected genre Id: ${selectedGenre}</p> -->
+          </section>
 
-        <!-- custom element with prop=book -->
-        <book book.bind="book" linked.bind="true"></book>
+        </div>
+      </div>
 
+      <div class="row">
+        <!-- repeater -->
+        <div class="col-lg-6 offset-lg-1" repeat.for="book of books" if.bind="book.genres.includes(selectedGenre)">
+
+          <!-- sätta dynamisk klass -->
+          <!--  <div class="col-lg-6" repeat.for="book of books"> -->
+          <!--   <div class="${book.genres.includes(selectedGenre)? 'blamatching' : 'notMatching'}"> class</div> -->
+
+
+          <!--  <div if.bind="book.genres.includes(selectedGenre)">matching</div> -->
+          <!--  <div>Selected:${selectedGenre}</div>
+          <div>Book genre:${book.genres}</div>
+
+          test =${"[benny,lenny]".includes("benny")} -->
+
+          <book book.bind="book" linked.bind="true"></book>
+
+        </div>
       </div>
     </div>
+
   </section>
 </template>
-
-
-<!--   <h2 class="">${subHeading}</h2>
-    <!-- genre selector -->
-<!--   <label>
-      Select genre:<br>
-      <select value.bind="selectedAnimalId">
-
-        <option repeat.for="genre of genres" model.bind="genre.id">
-          ${genre.id} - ${genre.name}
-        </option>
-      </select>
-    </label>
-    Selected genre ID: ${selectedGenreId} -->
