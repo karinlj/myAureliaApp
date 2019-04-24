@@ -5,7 +5,7 @@ For more information, go to https://aurelia.io/docs/cli/webpack
 
 
 ## Description
-Aurelia App - different sections
+Aurelia App - Select boxes
 
 ## Prerequisites
 NodeJS
@@ -24,7 +24,7 @@ To run
 
 `au run`, then open `http://localhost:8080`
 
-## Inpiration
+## Inspiration
 
 Traversy Media
 
