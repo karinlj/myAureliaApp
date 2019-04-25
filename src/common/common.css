@@ -129,7 +129,7 @@
 .menu-wrap .menu > div > div > ul > li {
   list-style: none;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   padding: 1rem;
 }
 .menu-wrap .menu > div > div > ul > li > a {
@@ -250,9 +250,9 @@ body {
   line-height: 1.4;
 }
 .content-section {
-  padding: 10rem 0;
+  padding: 3rem 0 10rem 0;
 }
 h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 400;
 }
