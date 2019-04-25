@@ -1,21 +1,69 @@
-import { inject } from 'aurelia-framework';
-//import { bindable } from 'aurelia-framework';
-//import { Router } from 'aurelia-router';
-import books from '../../services/book-service';
-import genres from '../../services/genre-service';
+import { Book } from '../book/book';
 
-@inject()
 export class Booklist {
 	constructor() {
-		this.books = books;
-		this.genres = genres;
-		this.pageTitle = 'Borrow a book!';
-		this.subTitle = 'Choose genre';
+		this.pageTitle = 'Booklist';
+		this.booklist = [];
 
-		this.selectedGenre = null;
+		//from inputs
+		this.newTitle = '';
+		this.newAuthor = '';
+		this.newIsbn = '';
+
+		console.log(this);
 	}
 
-	async attached() {
-		//
+	addBook() {
+		//e.preventDefault();
+
+		//new object with arguments
+		const book = new Book(this.newTitle, this.newAuthor, this.newIsbn);
+
+		console.log('book', book);
+
+		//if all fields are filled in
+		if (this.newTitle && this.newAuthor && this.newIsbn) {
+			//push
+			//this.booklist.push(book);
+
+			//spread
+			this.booklist = [...this.booklist, book];
+
+			//clear fields again
+			this.newTitle = '';
+			this.newAuthor = '';
+			this.newIsbn = '';
+
+			//console.log('a');
+		}
+	}
+
+	/* 
+    //splice
+    removeBook(book) in booklist.html
+    removeBook(book) {
+		let index = this.booklist.indexOf(book);
+		//om book-indexet finns
+		if (index !== -1) {
+			this.booklist.splice(index, 1); //delete just 1 index
+		}
+	} */
+
+	//filter
+	//removeBook(book.title) in booklist.html
+	removeBook(title) {
+		console.log('title', title);
+
+		this.booklist = this.booklist.filter(b => {
+			return b.title !== title;
+		});
 	}
 }
+
+/* this.booklist = this.booklist.filter((b, i) => {
+			return i !== index;
+		}); */
+
+/* 	const todos = this.state.todos.filter(t => {
+			return t.id !== id;
+		}); */

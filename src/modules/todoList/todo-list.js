@@ -1,7 +1,7 @@
 import { Todo } from './todo';
 
 export class TodoList {
-	message = 'TodoList';
+	message = 'Todolist';
 	todoList = [];
 
 	constructor() {

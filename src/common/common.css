@@ -1,4 +1,3 @@
-@import '~bootstrap/dist/css/bootstrap.css';
 /* ul + p {
     color: red;
 
@@ -192,85 +191,6 @@
   margin: 0;
   padding: 0;
 }
-.card {
-  margin-bottom: 1rem;
-}
-.card .card-title {
-  color: rgba(13, 110, 139, 0.75);
-  margin-bottom: 0;
-}
-.card .card-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-@media screen and (min-width: 540px) {
-  .card .card-container {
-    flex-direction: row;
-  }
-}
-.card .card-container .pict {
-  flex: 1 1 20%;
-  margin-bottom: 1.5rem;
-}
-.card .card-container .pict img {
-  padding-right: 1.5rem;
-  max-width: 90px;
-}
-@media screen and (max-width: 400px) {
-  .card .card-container .pict img {
-    max-width: 110px;
-  }
-}
-@media screen and (min-width: 1500px) {
-  .card .card-container .pict img {
-    max-width: 110px;
-  }
-}
-@media screen and (min-width: 540px) {
-  .card .card-container .pict {
-    margin-bottom: 0;
-  }
-}
-.card .card-container .book-facts {
-  flex: 1 1 60%;
-}
-.card .card-container .book-facts .book-items {
-  text-align: left;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.card .card-container .book-facts .book-items li {
-  color: #333;
-  padding-bottom: 0.5rem;
-}
-.card .card-container .book-facts .book-items li span.book-label {
-  color: #999;
-}
-.card .card-container .loan-btn {
-  flex: 1 1 20%;
-}
-.card .card-container .loan-btn button {
-  margin-top: 1.5rem;
-  padding: 0.6rem 1.3rem;
-  font-size: 90%;
-}
-@media screen and (min-width: 540px) {
-  .card .card-container .loan-btn button {
-    float: right;
-    margin-top: 0;
-  }
-}
-.booklist h1 {
-  font-size: 4rem;
-}
-.booklist p {
-  font-size: 1.3rem;
-}
-.genre-section {
-  padding-bottom: 3rem;
-}
 .booklist.single .card .card-title {
   font-size: 2rem;
 }
@@ -330,7 +250,7 @@ body {
   line-height: 1.4;
 }
 .content-section {
-  padding-bottom: 10rem;
+  padding: 10rem 0;
 }
 h1 {
   font-size: 3rem;

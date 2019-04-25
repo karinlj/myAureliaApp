@@ -1,46 +1,42 @@
 <template>
-  <require from="../book/book"></require>
-  <require from="../header/main-header.html"></require>
-  <!-- <error-message error.bind="error"></error-message> -->
+    <div class="container">
+        <section class="content-section ">
 
-  <main-header page-title.bind="pageTitle"></main-header>
+            <h1>${pageTitle}</h1>
 
-  <section class="content-section booklist">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-6 offset-lg-1">
+            <!--submit.trigger, value.bind, repeat.for="book of booklist"   -->
 
-          <section class="genre-section" if.bind="genres.length > 0">
-            <h4>${subTitle}</h4>
-            <select class="form-control" name="genrelist" value.bind="selectedGenre">
-              <option repeat.for="genre of genres">${genre.name}</option>
-            </select>
-            <!-- <p>selected genre Id: ${selectedGenre}</p> -->
-          </section>
+            <!--  adding book -->
+            <form submit.trigger="addBook()">
+                <input type="text" value.bind="newTitle" placeholder="Title" class="u-full-width">
+                <input type="text" value.bind="newAuthor" placeholder="Author" class="u-full-width">
+                <input type="text" value.bind="newIsbn" placeholder="ISBN number" class="u-full-width">
+                <button type="submit">Add Book</button>
+            </form>
 
-        </div>
-      </div>
+            <table class="u-full-width">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                    <!-- where delete-btn goes -->
+                    <th></th>
+                </tr>
 
-      <div class="row">
-        <!-- repeater -->
-        <div class="col-lg-6 offset-lg-1" repeat.for="book of books" if.bind="book.genres.includes(selectedGenre)">
+                <!--  looping through books -->
+                <tr repeat.for="book of booklist">
+                    <td>${book.title}</td>
+                    <td>${book.author}</td>
+                    <td>${book.isbn}</td>
 
-          <!-- sätta dynamisk klass -->
-          <!--  <div class="col-lg-6" repeat.for="book of books"> -->
-          <!--   <div class="${book.genres.includes(selectedGenre)? 'blamatching' : 'notMatching'}"> class</div> -->
+                    <!--  delete book -->
+                    <td>
+                        <button click.trigger="removeBook(book.title)">Delete</button>
+                    </td>
 
+                </tr>
 
-          <!--  <div if.bind="book.genres.includes(selectedGenre)">matching</div> -->
-          <!--  <div>Selected:${selectedGenre}</div>
-          <div>Book genre:${book.genres}</div>
-
-          test =${"[benny,lenny]".includes("benny")} -->
-
-          <book book.bind="book" linked.bind="true"></book>
-
-        </div>
-      </div>
+            </table>
+        </section>
     </div>
-
-  </section>
 </template>
