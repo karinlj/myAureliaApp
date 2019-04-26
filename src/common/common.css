@@ -191,6 +191,39 @@
   margin: 0;
   padding: 0;
 }
+.action-btn {
+  color: #fff;
+}
+.action-btn:hover {
+  opacity: 0.75;
+  color: #fff;
+}
+.action-btn:active {
+  color: #fff;
+}
+.action-btn:focus {
+  color: #fff;
+}
+.action-btn.delete {
+  background: #e60000;
+  border-color: #e60000;
+  float: right;
+}
+.action-btn.add {
+  background: #339933;
+  border-color: #339933;
+}
+.error-message {
+  padding: 6px 10px;
+  background: #e60000;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  transition: all 1s ease-in-out;
+}
+.error-message p {
+  margin-bottom: 0;
+}
 .booklist.single .card .card-title {
   font-size: 2rem;
 }

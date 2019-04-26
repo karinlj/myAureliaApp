@@ -5,8 +5,9 @@
     <div class="container">
         <section class="content-section ">
 
-            <!--  <h1>${pageTitle}</h1> -->
-
+            <div class="error-message" if.bind="error">
+                <p>${error}</p>
+            </div>
             <!--submit.trigger, value.bind, repeat.for="book of booklist"   -->
 
             <!--  adding book -->
@@ -14,7 +15,15 @@
                 <input type="text" value.bind="newTitle" placeholder="Title" class="u-full-width">
                 <input type="text" value.bind="newAuthor" placeholder="Author" class="u-full-width">
                 <input type="text" value.bind="newIsbn" placeholder="ISBN number" class="u-full-width">
-                <button type="submit">Add Book</button>
+
+                <select class="u-full-width" name="genrelist" value.bind="selectedGenre">
+                    <option model.bind="null" disabled selected>Choose genre</option>
+                    <!--  looping through genrelist -->
+                    <option repeat.for="genre of genrelist" model.bind="genre">${genre}</option>
+                </select>
+                <!--   <p>selected genre: ${selectedGenres}</p> -->
+
+                <button class="action-btn add" type="submit">Add Book</button>
             </form>
 
             <table class="u-full-width">
@@ -22,21 +31,22 @@
                     <th>Title</th>
                     <th>Author</th>
                     <th>ISBN</th>
+                    <th>Genre</th>
                     <!-- where delete-btn goes -->
                     <th></th>
                 </tr>
 
-                <!--  looping through books -->
+                <!--  looping through booklist -->
                 <tr repeat.for="book of booklist">
                     <td>${book.title}</td>
                     <td>${book.author}</td>
                     <td>${book.isbn}</td>
+                    <td>${book.genre}</td>
 
                     <!--  delete book -->
                     <td>
-                        <button click.trigger="removeBook(book.title)">Delete</button>
+                        <button class="action-btn delete" click.trigger="removeBook(book.title)">Delete</button>
                     </td>
-
                 </tr>
 
             </table>

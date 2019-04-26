@@ -1,4 +1,4 @@
-import { inject } from 'aurelia-framework';
+import { inject } from './aurelia-framework';
 //import { bindable } from 'aurelia-framework';
 //import { Router } from 'aurelia-router';
 import books from '../../services/book-service';
