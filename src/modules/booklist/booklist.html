@@ -18,7 +18,7 @@
                 <input type="text" value.bind="newIsbn" placeholder="ISBN number" class="u-full-width">
 
                 <select class="u-full-width" name="genrelist" value.bind="selectedGenre">
-                    <option model.bind="null" disabled selected>Choose genre</option>
+                    <option model.bind="null" selected>Choose genre</option>
                     <!--  looping through genrelist -->
                     <option repeat.for="genre of genrelist" model.bind="genre">${genre}</option>
                 </select>
@@ -27,6 +27,7 @@
                 <button class="action-btn add" type="submit">Add Book</button>
             </form>
 
+            <!-- TODO: tables-component -->
             <table class="u-full-width">
                 <tr>
                     <th>Title</th>
@@ -56,11 +57,12 @@
             <h4>${filterBooksTitle}</h4>
 
             <select class="u-full-width" name="genrelist" value.bind="selectedGenre">
-                <option model.bind="null" disabled selected>Choose genre</option>
+                <option model.bind="null" selected>All genres</option>
                 <!--  looping through genrelist -->
                 <option repeat.for="genre of genrelist" model.bind="genre">${genre}</option>
             </select>
 
+            <!-- TODO: tables-component -->
             <table class="u-full-width">
                 <tr>
                     <th>Title</th>
@@ -70,7 +72,7 @@
                 </tr>
 
                 <!--  looping through booksFromService -->
-                <tr repeat.for="b of booksFromService" if.bind="b.genres.includes(selectedGenre)">
+                <tr repeat.for="b of booksFromService" if.bind="!selectedGenre || b.genres.includes(selectedGenre)">
                     <td> <a route-href="route: single; params.bind: {slug: b.slug}">${b.title} </a>
                     </td>
                     <td>${b.author}</td>

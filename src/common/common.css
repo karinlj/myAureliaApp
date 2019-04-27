@@ -225,6 +225,8 @@
 }
 .single-book {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .single-book .book-img {
   flex: 1 1 30%;
@@ -265,6 +267,7 @@ header.main-header .header-wrapper h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10rem;
 }
 .footer .footer-text {
   text-align: center;
