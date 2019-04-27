@@ -259,6 +259,16 @@ header.main-header .header-wrapper h1 {
   top: 50%;
   transform: translateY(-50%);
 }
+.footer {
+  background: #f9f9f9;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer .footer-text {
+  text-align: center;
+}
 /* CORE STYLES */
 * {
   margin: 0;
@@ -272,7 +282,3 @@ body {
 .content-section {
   padding: 2rem 0 5rem 0;
 }
-/* h1 {
-	font-size: 4rem;
-	font-weight: 400;
-} */

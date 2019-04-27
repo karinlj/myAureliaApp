@@ -1,0 +1,13 @@
+<template>
+    <require from="../../resources/value-converters/converters"></require>
+    <section class="footer">
+        <div class="footer-text">
+            <h4>My Aurelia App</h4>
+            <!-- The pipe symbol | is used to apply the converter. We are only using dateFormat since this is how Aurelia is registering DateFormatValueConverter. -->
+
+            <span> &copy;${currentDate | dateFormat}</span> <a href="http://karinljunggren.com/" class="copy">
+                karinljunggren</a>
+
+        </div>
+    </section>
+</template>
