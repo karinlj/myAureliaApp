@@ -3,7 +3,8 @@
 
     <main-header page-title.bind="pageTitle"></main-header>
     <div class="container">
-        <section class="content-section ">
+        <section class="content-section">
+            <h4>${addBookTitle}</h4>
 
             <div class="error-message" if.bind="error">
                 <p>${error}</p>
@@ -45,10 +46,37 @@
 
                     <!--  delete book -->
                     <td>
-                        <button class="action-btn delete" click.trigger="removeBook(book.title)">Delete</button>
+                        <button class="action-btn delete" click.trigger="removeBook(book)">Delete</button>
                     </td>
                 </tr>
 
+            </table>
+        </section>
+        <section class="content-section ">
+            <h4>${filterBooksTitle}</h4>
+
+            <select class="u-full-width" name="genrelist" value.bind="selectedGenre">
+                <option model.bind="null" disabled selected>Choose genre</option>
+                <!--  looping through genrelist -->
+                <option repeat.for="genre of genrelist" model.bind="genre">${genre}</option>
+            </select>
+
+            <table class="u-full-width">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                    <th>Genres</th>
+                </tr>
+
+                <!--  looping through booksFromService -->
+                <tr repeat.for="b of booksFromService" if.bind="b.genres.includes(selectedGenre)">
+                    <td> <a route-href="route: single; params.bind: {slug: b.slug}">${b.title} </a>
+                    </td>
+                    <td>${b.author}</td>
+                    <td>${b.isbn}</td>
+                    <td>${b.genres}</td>
+                </tr>
             </table>
         </section>
     </div>

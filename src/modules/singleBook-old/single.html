@@ -1,0 +1,19 @@
+<template>
+  <require from="../book/book"></require>
+  <require from="../header/main-header.html"></require>
+  <!-- <error-message error.bind="error"></error-message> -->
+
+  <main-header page-title.bind="pageTitle"></main-header>
+
+  <section class="content-section booklist single">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <book book.bind="book" linked.bind="false"></book>
+
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+</template>

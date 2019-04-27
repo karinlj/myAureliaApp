@@ -22,6 +22,7 @@ export default [
 		content:
 			'En ung man har mördats utanför sin port på adress Via Cavour 44. Ett äldre par har spårlöst försvunnit i samband med en busstur till den antika ruinen i Tindari. Det är två fall…',
 	},
+
 	{
 		id: 3,
 		title: 'Frankenstein',
@@ -32,5 +33,27 @@ export default [
 		genres: ['Fantasy', 'Classic'],
 		content:
 			'Den unge Victor Frankenstein åker till universitetet i Ingolstadt för att studera. Han fastnar för naturvetenskaperna och framför allt för kemin. En sak intresserar honom särskilt …',
+	},
+	{
+		id: 4,
+		title: 'Pippi Långstrump',
+		slug: 'pippilangstrump',
+		author: 'Astrid Lindgren',
+		image: 'pippi.jpg',
+		isbn: '555877',
+		genres: ['Childrens books'],
+		content:
+			'Klassiska Pippi-äventyr i ny utgåva! Här hittar du bilderböckerna Känner du Pippi Långstrump?, Pippi hittar en spunk och Pippi i Humlegården i en samlingsvolym.Följ med när Pippi …',
+	},
+	{
+		id: 5,
+		title: 'Montalbano',
+		slug: 'montalbano',
+		author: 'Andrea Camilleri',
+		image: 'krukmakarens-aker.jpg',
+		isbn: '777789',
+		genres: ['Detective story'],
+		content:
+			'Vinnare av THE CRIME WRITERS ASSOCIATIONS International Dagger-pris!»Krukmakarens åker är spännande och välskriven, med underfundigt humoristiska formuleringar. Atmosfären är skönt …',
 	},
 ];

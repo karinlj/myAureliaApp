@@ -1,19 +1,39 @@
 <template>
-  <require from="../book/book"></require>
+  <!-- <require from="../book/book"></require> -->
   <require from="../header/main-header.html"></require>
   <!-- <error-message error.bind="error"></error-message> -->
 
-  <main-header page-title.bind="pageTitle"></main-header>
+  <main-header page-title.bind="b.title"></main-header>
 
-  <section class="content-section booklist single">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-8 offset-md-2">
-          <book book.bind="book" linked.bind="false"></book>
+  <div class="container">
+    <section class="content-section">
+      <!--  b from booksFromService -->
 
+      <article class="single-book">
+        <div class="book-img">
+          <img src.bind="b.image" alt="book">
         </div>
-      </div>
-    </div>
-    </div>
-  </section>
+
+        <div class="book-facts">
+          <table class="u-full-width">
+            <tr>
+              <th>Author</th>
+              <td>${b.author}</td>
+            </tr>
+            <tr>
+              <th>ISBN</th>
+              <td>${b.isbn}</td>
+            </tr>
+            <tr>
+              <th>Genres</th>
+              <td>${b.genres}</td>
+            </tr>
+          </table>
+        </div>
+      </article>
+
+    </section>
+  </div>
+
+  <!--  <book book.bind="book" linked.bind="false"></book> -->
 </template>

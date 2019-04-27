@@ -1,28 +1,10 @@
-.booklist.single {
-	.card {
-		.card-title {
-			font-size: 2rem;
-		}
-		.card-container {
-			.pict {
-				img {
-					max-width: 180px !important;
-					@media screen and (max-width: 400px) {
-						max-width: 210px !important;
-					}
-					@media screen and (min-width: 1500px) {
-						max-width: 210px !important;
-					}
-				}
-			}
+.single-book {
+	display: flex;
 
-			.loan-btn {
-				button {
-					padding: 0.6rem 1.3rem;
-					margin-top: 0;
-					font-size: 90%;
-				}
-			}
-		}
+	.book-img {
+		flex: 1 1 30%;
+	}
+	.book-facts {
+		flex: 1 1 70%;
 	}
 }

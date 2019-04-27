@@ -1,10 +1,14 @@
 import { Book } from '../book/book';
+import booksFromService from '../../services/book-service';
 
 export class Booklist {
 	genrelist = ['Classic', 'Detective story', 'Childrens books', 'Other'];
 
 	constructor() {
-		this.pageTitle = 'Booklist';
+		this.pageTitle = 'Books books books...';
+		this.addBookTitle = 'Add a book to the list';
+		this.filterBooksTitle = 'Filter books on genre';
+		//	this.linked = true;
 		this.booklist = [
 			{
 				title: 'Oliver Twist',
@@ -20,12 +24,13 @@ export class Booklist {
 			},
 		];
 
+		this.booksFromService = booksFromService;
+
 		//from inputs
 		this.newTitle = '';
 		this.newAuthor = '';
 		this.newIsbn = '';
 		this.selectedGenre = '';
-		//this.selectedGenres = [];
 
 		this.error = '';
 		console.log(this);
@@ -39,10 +44,9 @@ export class Booklist {
 			this.newAuthor,
 			this.newIsbn,
 			this.selectedGenre
-			//this.selectedGenres
 		);
 
-		console.log('book', book);
+		//	console.log('book', book);
 
 		//if all fields are filled in
 		if (this.newTitle && this.newAuthor && this.newIsbn && this.selectedGenre) {
@@ -57,8 +61,8 @@ export class Booklist {
 			this.newAuthor = '';
 			this.newIsbn = '';
 			this.selectedGenre = '';
-			//this.selectedGenres = [];
 		} else {
+			console.log('this from func', this);
 			this.showErrMess();
 		}
 	}
@@ -66,20 +70,18 @@ export class Booklist {
 	showErrMess() {
 		this.error = 'Please fill in all fields';
 		setTimeout(function() {
-			console.log(this); //gets the global window object
+			console.log('this from setTimeout', this); //gets the global window object
 			//	this.error = '';
 			document.querySelector('.error-message').remove();
 		}, 3000);
 	}
 
-	removeBook(title) {
-		//removeBook(book.title) in booklist.html
-
-		console.log('title', title);
+	removeBook(book) {
+		console.log('my book', book);
 
 		//filter
 		this.booklist = this.booklist.filter(b => {
-			return b.title !== title;
+			return b.title !== book.title;
 		});
 	}
 }
@@ -93,11 +95,3 @@ export class Booklist {
 			this.booklist.splice(index, 1); //delete just 1 index
 		}
 	} */
-
-/* this.booklist = this.booklist.filter((b, i) => {
-			return i !== index;
-		}); */
-
-/* 	const todos = this.state.todos.filter(t => {
-			return t.id !== id;
-		}); */

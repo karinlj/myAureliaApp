@@ -1,14 +1,16 @@
 import { Router } from 'aurelia-router';
 import { inject } from 'aurelia-framework';
-import books from '../../services/book-service';
+//import { Book } from '../book/book';
+import booksFromService from '../../services/book-service';
 
 @inject(Router)
 export class Single {
 	//
 	constructor(router) {
+		this.singleBookTitle = 'singleBook';
 		this.router = router;
-		this.books = books;
-		this.book = null;
+		this.booksFromService = booksFromService;
+		this.b = null;
 	}
 
 	async attached() {
@@ -17,21 +19,9 @@ export class Single {
 		let slug = this.router.currentInstruction.params['slug'];
 		console.log(slug);
 
-		let book = this.books.find(book => {
-			return book.slug.toLowerCase() === slug.toLowerCase();
+		let b = this.booksFromService.find(b => {
+			return b.slug.toLowerCase() === slug.toLowerCase();
 		});
-		this.book = book;
-
-		//samma sak:
-		// let book = this.books.find(
-		// 	book => book.slug.toLowerCase() === slug.toLowerCase()
-		// );
-
-		// let book = this.books.find(book => book.slug);
-
-		// let book = this.books.find(book => {
-		// 	return book.slug;
-		// });
-		//Bitmask
+		this.b = b;
 	}
 }
