@@ -73,8 +73,10 @@
 
                 <!--  looping through booksFromService -->
                 <tr repeat.for="b of booksFromService" if.bind="!selectedGenre || b.genres.includes(selectedGenre)">
-                    <td> <a route-href="route: single; params.bind: {slug: b.slug}">${b.title} </a>
+                    <td> <a route-href="route: single; params.bind: {book_id: b.id}">${b.title} </a>
                     </td>
+                    <!--     <td> <a route-href="route: single; params.bind: {slug: b.slug}">${b.title} </a>
+                    </td> -->
                     <td>${b.author}</td>
                     <td>${b.isbn}</td>
                     <td>${b.genres}</td>

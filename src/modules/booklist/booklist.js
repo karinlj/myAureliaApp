@@ -9,20 +9,6 @@ export class Booklist {
 		this.addBookTitle = 'Add a book to the list';
 		this.filterBooksTitle = 'Filter books on genre';
 		//	this.linked = true;
-		this.booklist = [
-			{
-				title: 'Oliver Twist',
-				author: 'Charles Dickens',
-				isbn: 223365,
-				genre: 'Drama',
-			},
-			{
-				title: 'Frankenstein',
-				author: 'Mary Shelley',
-				isbn: 555694,
-				genre: 'Classic',
-			},
-		];
 
 		this.booksFromService = booksFromService;
 
@@ -33,7 +19,7 @@ export class Booklist {
 		this.selectedGenre = '';
 
 		this.error = '';
-		console.log(this);
+		//console.log(this);
 	} //constructor ends
 
 	addBook() {

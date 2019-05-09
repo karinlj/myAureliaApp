@@ -25,7 +25,8 @@ export class App {
 				moduleId: PLATFORM.moduleName('./modules/booklist/booklist'),
 			},
 			{
-				route: 'single/:slug',
+				route: 'single/:book_id',
+				//route: 'single/:slug',
 				name: 'single',
 				title: '',
 				//nav: true,

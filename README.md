@@ -18,11 +18,11 @@ To clone
 
 To install
 
-```npm install```
+```npm install` or `npm install -g aurelia-cli```
 
 To run
 
-`au run`, then open `http://localhost:8080`
+`npx au run`, then open `http://localhost:8080`
 
 ## Inspiration
 

@@ -16,12 +16,18 @@ export class Single {
 	async attached() {
 		this.title = '';
 		//same as React:   let id = this.props.match.params.post_id;
-		let slug = this.router.currentInstruction.params['slug'];
-		console.log(slug);
+		//let slug = this.router.currentInstruction.params['slug'];
 
-		let b = this.booksFromService.find(b => {
+		//hämta id:t från url:en
+		let id = this.router.currentInstruction.params['book_id'];
+		console.log('my url-id', id);
+
+		/* let singleBook = this.booksFromService.find(b => {
 			return b.slug.toLowerCase() === slug.toLowerCase();
+		}); */
+		let singleBook = this.booksFromService.find(b => {
+			return b.id == id;
 		});
-		this.b = b;
+		this.b = singleBook;
 	}
 }
