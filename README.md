@@ -18,7 +18,7 @@ To clone
 
 To install
 
-```npm install` or `npm install -g aurelia-cli```
+`npm install` or `npm install -g aurelia-cli`
 
 To run
 
