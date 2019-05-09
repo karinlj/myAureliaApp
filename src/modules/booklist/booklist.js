@@ -10,6 +10,33 @@ export class Booklist {
 		this.filterBooksTitle = 'Filter books on genre';
 		//	this.linked = true;
 
+		//för övre delen av appen
+		this.booklist = [
+			{
+				id: 0,
+				title: 'Oliver Twist',
+				slug: 'oliver-twist',
+				author: 'Charles Dickens',
+				image: 'oliver-twist.jpg',
+				isbn: '561456298',
+				genres: ['Classic', 'Drama'],
+				content:
+					'Stackars Oliver Twist! Det finns nog inte någon människa som vill byta plats med denna godhjärtade och tappre pojke, vars ensamstående mor dör i barnsäng så att han tvingas …',
+			},
+			{
+				id: 1,
+				title: 'Pyramid of Mud',
+				slug: 'pyramid-of-mud',
+				author: 'Andrea Camilleri',
+				image: 'pyramid-of-mud.jpg',
+				isbn: '1146687',
+				genres: ['Detective story'],
+				content:
+					'En ung man har mördats utanför sin port på adress Via Cavour 44. Ett äldre par har spårlöst försvunnit i samband med en busstur till den antika ruinen i Tindari. Det är två fall…',
+			},
+		];
+
+		//för nedre delen av appen
 		this.booksFromService = booksFromService;
 
 		//from inputs
