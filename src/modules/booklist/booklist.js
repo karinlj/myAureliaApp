@@ -9,7 +9,6 @@ export class Booklist {
 		this.addBookTitle = 'Add a book to the list';
 		this.filterBooksTitle = 'Filter books on genre';
 		this.expanded = false;
-		this.maxItems = 3;
 
 		//för övre delen av appen
 		this.booklist = [
