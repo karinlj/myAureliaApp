@@ -30,6 +30,7 @@
             <!-- TODO: tables-component -->
             <table class="u-full-width">
                 <tr>
+                    <!--  <th></th> -->
                     <th>Title</th>
                     <th>Author</th>
                     <th>ISBN</th>
@@ -39,7 +40,8 @@
                 </tr>
 
                 <!--  looping through booklist -->
-                <tr repeat.for="book of booklist">
+                <tr repeat.for="book of booklist" if.bind="$index < 3 || expanded">
+                    <!--  <td>${$index}</td> -->
                     <td>${book.title}</td>
                     <td>${book.author}</td>
                     <td>${book.isbn}</td>
@@ -50,7 +52,15 @@
                         <button class="action-btn delete" click.trigger="removeBook(book)">Delete</button>
                     </td>
                 </tr>
+
             </table>
+            <span class="show-btn" if.bind="!expanded" click.delegate="toogleView(expanded)"><a href="#">View more..</a>
+            </span>
+            <span class="hide-btn" if.bind="expanded" click.delegate="toogleView(expanded)"><a
+                    href="#">Hide..</a></span>
+
+
+
         </section>
 
         <section class="content-section ">

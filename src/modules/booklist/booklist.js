@@ -8,7 +8,8 @@ export class Booklist {
 		this.pageTitle = 'Books books books...';
 		this.addBookTitle = 'Add a book to the list';
 		this.filterBooksTitle = 'Filter books on genre';
-		//	this.linked = true;
+		this.expanded = false;
+		this.maxItems = 3;
 
 		//för övre delen av appen
 		this.booklist = [
@@ -19,7 +20,7 @@ export class Booklist {
 				author: 'Charles Dickens',
 				image: 'oliver-twist.jpg',
 				isbn: '561456298',
-				genres: ['Classic', 'Drama'],
+				genre: ['Classic'],
 				content:
 					'Stackars Oliver Twist! Det finns nog inte någon människa som vill byta plats med denna godhjärtade och tappre pojke, vars ensamstående mor dör i barnsäng så att han tvingas …',
 			},
@@ -30,9 +31,31 @@ export class Booklist {
 				author: 'Andrea Camilleri',
 				image: 'pyramid-of-mud.jpg',
 				isbn: '1146687',
-				genres: ['Detective story'],
+				genre: ['Detective story'],
 				content:
 					'En ung man har mördats utanför sin port på adress Via Cavour 44. Ett äldre par har spårlöst försvunnit i samband med en busstur till den antika ruinen i Tindari. Det är två fall…',
+			},
+			{
+				id: 3,
+				title: 'Frankenstein',
+				slug: 'frankenstein',
+				author: 'Mary Shelley',
+				image: 'frankenstein.jpg',
+				isbn: '12343685',
+				genre: ['Classic'],
+				content:
+					'Den unge Victor Frankenstein åker till universitetet i Ingolstadt för att studera. Han fastnar för naturvetenskaperna och framför allt för kemin. En sak intresserar honom särskilt …',
+			},
+			{
+				id: 4,
+				title: 'Pippi Långstrump',
+				slug: 'pippilangstrump',
+				author: 'Astrid Lindgren',
+				image: 'pippi.jpg',
+				isbn: '555877',
+				genre: ['Childrens books'],
+				content:
+					'Klassiska Pippi-äventyr i ny utgåva! Här hittar du bilderböckerna Känner du Pippi Långstrump?, Pippi hittar en spunk och Pippi i Humlegården i en samlingsvolym.Följ med när Pippi …',
 			},
 		];
 
@@ -48,6 +71,11 @@ export class Booklist {
 		this.error = '';
 		//console.log(this);
 	} //constructor ends
+
+	toogleView(expanded) {
+		this.expanded = !this.expanded;
+		console.log('view more', this.expanded);
+	}
 
 	addBook() {
 		//e.preventDefault();
