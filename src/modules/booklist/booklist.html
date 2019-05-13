@@ -40,6 +40,7 @@
                 </tr>
 
                 <!--  looping through booklist -->
+                <!-- om index är mindre än 3 eller om listan är expanderad så ska booklist loopas vidare -->
                 <tr repeat.for="book of booklist" if.bind="$index < 3 || expanded">
                     <!--  <td>${$index}</td> -->
                     <td>${book.title}</td>
@@ -54,8 +55,10 @@
                 </tr>
 
             </table>
+            <!-- om listan inte är expanderad så ska länken visas -->
             <span class="show-btn" if.bind="!expanded" click.delegate="toogleView(expanded)"><a href="#">View more..</a>
             </span>
+            <!-- om listan  är expanderad så ska länken visas -->
             <span class="hide-btn" if.bind="expanded" click.delegate="toogleView(expanded)"><a
                     href="#">Hide..</a></span>
 
