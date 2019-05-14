@@ -4,12 +4,56 @@
     <main-header page-title.bind="pageTitle"></main-header>
     <div class="container">
         <section class="content-section">
+
+            <div class="input-section">
+                <h4>Inputs</h4>
+
+                <form>
+                    <div>
+                        <label>Förnamn</label>
+                        <div class="input-container">
+                            <!--  <p>John</p> -->
+                            <input type="text" placeholder="" value="John" click.trigger="toggleInput()"
+                                readonly.bind="readonlyVarOne" blur.trigger="blurFunc()">
+                        </div>
+                    </div>
+                    <div>
+                        <label>Efternamn</label>
+                        <div class="input-container">
+                            <input type="text" placeholder="" value="Andersson">
+                        </div>
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        <div class="input-container">
+                            <input type="email" placeholder="" value="john@gmail.com">
+                        </div>
+                    </div>
+
+
+                    <!--  <div>
+                        <label>Efternamn</label>
+                        <p>Andersson</p>
+                        <input type="text" placeholder="Efternamn" click.trigger="toggleInput()">
+                    </div>
+
+                    <div>
+                        <label>john@gmail.com</label>
+                        <p>John</p>
+                        <input type="email" placeholder="Email" click.trigger="toggleInput()">
+                    </div> -->
+
+                </form>
+
+            </div>
+
+
             <h4>${addBookTitle}</h4>
 
             <div class="error-message" if.bind="error">
                 <p>${error}</p>
             </div>
-            <!--submit.trigger, value.bind, repeat.for="book of booklist"   -->
+
 
             <!--  adding book -->
             <form submit.trigger="addBook()">
@@ -58,7 +102,7 @@
             <!-- om listan inte är expanderad så ska länken visas -->
             <span class="show-btn" if.bind="!expanded" click.delegate="toogleView(expanded)"><a href="#">View more..</a>
             </span>
-            <!-- om listan är expanderad så ska länken visas -->
+            <!-- om listan  är expanderad så ska länken visas -->
             <span class="hide-btn" if.bind="expanded" click.delegate="toogleView(expanded)"><a
                     href="#">Hide..</a></span>
 

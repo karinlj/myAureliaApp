@@ -32,3 +32,47 @@
 		margin-bottom: 0;
 	}
 }
+
+.input-section {
+	max-width: 100%;
+	margin-bottom: 10rem;
+	form {
+		display: flex;
+		//justify-content: space-around;
+		div {
+			margin-right: 2rem;
+			label {
+				display: block;
+			}
+			.input-container {
+				input {
+					border: none;
+				}
+				// position: relative;
+				// p {
+				// 	position: absolute;
+				// 	top: 8px;
+				// 	left: 10px;
+				// }
+				// input {
+				// 	position: absolute;
+				// 	top: 0;
+				// 	left: 0;
+				// 	//z-index: -1;
+				// }
+			}
+		}
+	}
+	/* 	&*[readonly] {
+		background-color: blue;
+	} */
+}
+input:read-only {
+	//background-color: yellow;
+	border: none;
+}
+
+// input:-moz-read-only {
+// 	/* For Firefox */
+// 	background-color: yellow;
+// }

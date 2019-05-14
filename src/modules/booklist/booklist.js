@@ -9,6 +9,7 @@ export class Booklist {
 		this.addBookTitle = 'Add a book to the list';
 		this.filterBooksTitle = 'Filter books on genre';
 		this.expanded = false;
+		this.readonlyVarOne = true;
 
 		//för övre delen av appen
 		this.booklist = [
@@ -123,6 +124,15 @@ export class Booklist {
 		this.booklist = this.booklist.filter(b => {
 			return b.title !== book.title;
 		});
+	}
+
+	toggleInput($event) {
+		this.readonlyVarOne = false;
+		//	$event.target.removeAttr('readonly');
+		//console.log('toggle', $event.target);
+	}
+	blurFunc() {
+		this.readonlyVarOne = true;
 	}
 }
 /* 

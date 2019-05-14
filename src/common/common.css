@@ -223,6 +223,28 @@
 .error-message p {
   margin-bottom: 0;
 }
+.input-section {
+  max-width: 100%;
+  margin-bottom: 10rem;
+  /* 	&*[readonly] {
+		background-color: blue;
+	} */
+}
+.input-section form {
+  display: flex;
+}
+.input-section form div {
+  margin-right: 2rem;
+}
+.input-section form div label {
+  display: block;
+}
+.input-section form div .input-container input {
+  border: none;
+}
+input:read-only {
+  border: none;
+}
 .single-book {
   display: flex;
   align-items: center;
