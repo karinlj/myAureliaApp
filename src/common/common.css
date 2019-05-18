@@ -191,6 +191,11 @@
   margin: 0;
   padding: 0;
 }
+.booklistOne-section,
+booklistTwo-section,
+input-section {
+  padding-bottom: 5rem;
+}
 .action-btn {
   color: #fff;
 }
@@ -238,9 +243,6 @@
 }
 .input-section form div label {
   display: block;
-}
-.input-section form div .input-container input {
-  border: none;
 }
 input:read-only {
   border: none;

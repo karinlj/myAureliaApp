@@ -1,4 +1,12 @@
 export class App {
+	constructor() {
+		this.user = localStorage.getItem('userMode');
+		this.roles = {
+			hradmin: ['seeInputs', 'seeHeading'],
+			coworker: ['seeBooklist', 'seeHeading'],
+		};
+	}
+
 	configureRouter(config, router) {
 		this.router = router;
 		config.title = 'My Aurelia App';
@@ -8,7 +16,10 @@ export class App {
 				name: 'home',
 				title: 'Home',
 				nav: true,
-				moduleId: PLATFORM.moduleName('./modules/home/home'),
+				//this.user == 1
+				moduleId: this.roles[this.user].includes('seeInputs')
+					? PLATFORM.moduleName('./modules/home/home')
+					: PLATFORM.moduleName('./modules/todoList/todo-list'),
 			},
 			{
 				route: 'todos',

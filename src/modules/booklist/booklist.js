@@ -11,6 +11,35 @@ export class Booklist {
 		this.expanded = false;
 		this.readonlyVarOne = true;
 
+		this.user = localStorage.getItem('userMode');
+		//	this.roles;
+		//	this=self;
+
+		this.roles = {
+			hradmin: ['seeInputs', 'seeBooklistOne'],
+			coworker: ['seeBooklistTwo'],
+		};
+
+		//	this.roles = getMyRoles();
+
+		// Call the fetch function passing the url of the API as a parameter
+		// fetch('./data/roles.json')
+		// 	// Your code for handling the data you get from the API
+		// 	.then(function(myResponse) {
+		// 		return roles = myResponse;
+		// 	});
+
+		/* fetch('./data/roles.json') 
+			// Your code for handling the data you get from the API
+			.then(function() {
+				
+			}) */
+
+		/* 	this.rolesResponse = await fetch('./data/roles.json');
+		this.roles=await Response.json(); */
+
+		//	console.log('roles', roles);
+
 		//för övre delen av appen
 		this.booklist = [
 			{
@@ -71,6 +100,12 @@ export class Booklist {
 		this.error = '';
 		//console.log(this);
 	} //constructor ends
+
+	/* async getMyRoles() {
+		this.rolesResponse = await fetch('./data/roles.json');
+		this.myroles = await Response.json();
+		return myroles;
+	} */
 
 	toogleView(expanded) {
 		this.expanded = !this.expanded;

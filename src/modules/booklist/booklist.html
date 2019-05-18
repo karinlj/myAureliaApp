@@ -5,7 +5,8 @@
     <div class="container">
         <section class="content-section">
 
-            <div class="input-section">
+            <!--   <div class="input-section" if.bind="user==1"> -->
+            <section class="input-section" if.bind="roles[user].includes('seeInputs')">
                 <h4>Inputs</h4>
 
                 <form>
@@ -30,100 +31,100 @@
                         </div>
                     </div>
                 </form>
-            </div>
+            </section>
 
 
-            <h4>${addBookTitle}</h4>
+            <section class="booklistOne-section" if.bind="roles[user].includes('seeBooklistOne')">
+                <h4>${addBookTitle}</h4>
 
-            <div class="error-message" if.bind="error">
-                <p>${error}</p>
-            </div>
+                <div class="error-message" if.bind="error">
+                    <p>${error}</p>
+                </div>
 
 
-            <!--  adding book -->
-            <form submit.trigger="addBook()">
-                <input type="text" value.bind="newTitle" placeholder="Title" class="u-full-width">
-                <input type="text" value.bind="newAuthor" placeholder="Author" class="u-full-width">
-                <input type="text" value.bind="newIsbn" placeholder="ISBN number" class="u-full-width">
+                <!--  adding book -->
+                <form submit.trigger="addBook()">
+                    <input type="text" value.bind="newTitle" placeholder="Title" class="u-full-width">
+                    <input type="text" value.bind="newAuthor" placeholder="Author" class="u-full-width">
+                    <input type="text" value.bind="newIsbn" placeholder="ISBN number" class="u-full-width">
+
+                    <select class="u-full-width" name="genrelist" value.bind="selectedGenre">
+                        <option model.bind="null" selected>Choose genre</option>
+                        <!--  looping through genrelist -->
+                        <option repeat.for="genre of genrelist" model.bind="genre">${genre}</option>
+                    </select>
+                    <!--   <p>selected genre: ${selectedGenres}</p> -->
+
+                    <button class="action-btn add" type="submit">Add Book</button>
+                </form>
+
+                <!-- TODO: tables-component -->
+                <table class="u-full-width">
+                    <tr>
+                        <!--  <th></th> -->
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>ISBN</th>
+                        <th>Genre</th>
+                        <!-- where delete-btn goes -->
+                        <th></th>
+                    </tr>
+
+                    <!--  looping through booklist -->
+                    <!-- om index är mindre än 3 eller om listan är expanderad, expanded=true så ska booklist loopas vidare -->
+                    <tr repeat.for="book of booklist" if.bind="$index < 3 || expanded">
+                        <!--  <td>${$index}</td> -->
+                        <td>${book.title}</td>
+                        <td>${book.author}</td>
+                        <td>${book.isbn}</td>
+                        <td>${book.genre}</td>
+
+                        <!--  delete book -->
+                        <td>
+                            <button class="action-btn delete" click.trigger="removeBook(book)">Delete</button>
+                        </td>
+                    </tr>
+                </table>
+                <!-- om listan inte är expanderad så ska länken visas -->
+                <span class="show-btn" if.bind="!expanded" click.delegate="toogleView(expanded)"><a href="#">View
+                        more..</a>
+                </span>
+                <!-- om listan  är expanderad så ska länken visas -->
+                <span class="hide-btn" if.bind="expanded" click.delegate="toogleView(expanded)"><a
+                        href="#">Hide..</a></span>
+            </section>
+
+
+            <section class="booklistTwo-section" if.bind="roles[user].includes('seeBooklistTwo')">
+                <h4>${filterBooksTitle}</h4>
 
                 <select class="u-full-width" name="genrelist" value.bind="selectedGenre">
-                    <option model.bind="null" selected>Choose genre</option>
+                    <option model.bind="null" selected>All genres</option>
                     <!--  looping through genrelist -->
                     <option repeat.for="genre of genrelist" model.bind="genre">${genre}</option>
                 </select>
-                <!--   <p>selected genre: ${selectedGenres}</p> -->
 
-                <button class="action-btn add" type="submit">Add Book</button>
-            </form>
+                <!-- TODO: tables-component -->
+                <table class="u-full-width">
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>ISBN</th>
+                        <th>Genres</th>
+                    </tr>
 
-            <!-- TODO: tables-component -->
-            <table class="u-full-width">
-                <tr>
-                    <!--  <th></th> -->
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>ISBN</th>
-                    <th>Genre</th>
-                    <!-- where delete-btn goes -->
-                    <th></th>
-                </tr>
-
-                <!--  looping through booklist -->
-                <!-- om index är mindre än 3 eller om listan är expanderad, expanded=true så ska booklist loopas vidare -->
-                <tr repeat.for="book of booklist" if.bind="$index < 3 || expanded">
-                    <!--  <td>${$index}</td> -->
-                    <td>${book.title}</td>
-                    <td>${book.author}</td>
-                    <td>${book.isbn}</td>
-                    <td>${book.genre}</td>
-
-                    <!--  delete book -->
-                    <td>
-                        <button class="action-btn delete" click.trigger="removeBook(book)">Delete</button>
-                    </td>
-                </tr>
-
-            </table>
-            <!-- om listan inte är expanderad så ska länken visas -->
-            <span class="show-btn" if.bind="!expanded" click.delegate="toogleView(expanded)"><a href="#">View more..</a>
-            </span>
-            <!-- om listan  är expanderad så ska länken visas -->
-            <span class="hide-btn" if.bind="expanded" click.delegate="toogleView(expanded)"><a
-                    href="#">Hide..</a></span>
-
-
-
-        </section>
-
-        <section class="content-section ">
-            <h4>${filterBooksTitle}</h4>
-
-            <select class="u-full-width" name="genrelist" value.bind="selectedGenre">
-                <option model.bind="null" selected>All genres</option>
-                <!--  looping through genrelist -->
-                <option repeat.for="genre of genrelist" model.bind="genre">${genre}</option>
-            </select>
-
-            <!-- TODO: tables-component -->
-            <table class="u-full-width">
-                <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>ISBN</th>
-                    <th>Genres</th>
-                </tr>
-
-                <!--  looping through booksFromService -->
-                <tr repeat.for="b of booksFromService" if.bind="!selectedGenre || b.genres.includes(selectedGenre)">
-                    <td> <a route-href="route: single; params.bind: {book_id: b.id}">${b.title} </a>
-                    </td>
-                    <!--     <td> <a route-href="route: single; params.bind: {slug: b.slug}">${b.title} </a>
+                    <!--  looping through booksFromService -->
+                    <tr repeat.for="b of booksFromService" if.bind="!selectedGenre || b.genres.includes(selectedGenre)">
+                        <td> <a route-href="route: single; params.bind: {book_id: b.id}">${b.title} </a>
+                        </td>
+                        <!--     <td> <a route-href="route: single; params.bind: {slug: b.slug}">${b.title} </a>
                     </td> -->
-                    <td>${b.author}</td>
-                    <td>${b.isbn}</td>
-                    <td>${b.genres}</td>
-                </tr>
-            </table>
+                        <td>${b.author}</td>
+                        <td>${b.isbn}</td>
+                        <td>${b.genres}</td>
+                    </tr>
+                </table>
+            </section>
         </section>
     </div>
 </template>
