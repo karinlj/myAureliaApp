@@ -6,7 +6,8 @@
         <section class="content-section">
 
             <!--   <div class="input-section" if.bind="user==1"> -->
-            <section class="input-section" if.bind="roles[user].includes('seeInputs')">
+            <!--  <section class="input-section" if.bind="roles[user].includes('seeInputs')"> -->
+            <section class="input-section" if.bind='accessPolicy.showOrhide("seeInputs")'>
                 <h4>Inputs</h4>
 
                 <form>
@@ -33,14 +34,14 @@
                 </form>
             </section>
 
+            <!--  <section class="booklistOne-section" if.bind="roles[user].includes(' seeBooklistOne')"> -->
 
-            <section class="booklistOne-section" if.bind="roles[user].includes('seeBooklistOne')">
+            <section class="booklistOne-section" if.bind='accessPolicy.showOrhide("seeBooklistOne")'>
                 <h4>${addBookTitle}</h4>
 
                 <div class="error-message" if.bind="error">
                     <p>${error}</p>
                 </div>
-
 
                 <!--  adding book -->
                 <form submit.trigger="addBook()">
@@ -95,7 +96,8 @@
             </section>
 
 
-            <section class="booklistTwo-section" if.bind="roles[user].includes('seeBooklistTwo')">
+            <!--   <section class="booklistTwo-section" if.bind="roles[user].includes('seeBooklistTwo')"> -->
+            <section class="booklistTwo-section" if.bind='accessPolicy.showOrhide("seeBooklistTwo")'>
                 <h4>${filterBooksTitle}</h4>
 
                 <select class="u-full-width" name="genrelist" value.bind="selectedGenre">

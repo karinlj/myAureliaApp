@@ -1,44 +1,38 @@
 import { Book } from '../book/book';
 import booksFromService from '../../services/book-service';
+import { AccessPolicy } from '../../services/access-policy';
+import { inject } from 'aurelia-framework';
 
+@inject(AccessPolicy)
 export class Booklist {
 	genrelist = ['Classic', 'Detective story', 'Childrens books', 'Other'];
 
-	constructor() {
+	constructor(accessPolicy) {
+		this.accessPolicy = accessPolicy;
 		this.pageTitle = 'Books books books...';
 		this.addBookTitle = 'Add a book to the list';
 		this.filterBooksTitle = 'Filter books on genre';
 		this.expanded = false;
 		this.readonlyVarOne = true;
 
-		this.user = localStorage.getItem('userMode');
-		//	this.roles;
-		//	this=self;
+		//getting 'userMode' from LS and put it in variable
+		//this.user = localStorage.getItem('userMode');
+		//console.log('my user', this.user);
 
-		this.roles = {
-			hradmin: ['seeInputs', 'seeBooklistOne'],
-			coworker: ['seeBooklistTwo'],
-		};
+		//my roles object
+		// this.roles = {
+		// 	hradmin: ['seeInputs', 'seeBooklistOne'],
+		// 	coworker: ['seeBooklistTwo'],
+		// };
 
-		//	this.roles = getMyRoles();
+		/* 	fetch('./data/roles.json').then(function(myResponse) {
+			this.roles = myResponse;
+		}); */
 
-		// Call the fetch function passing the url of the API as a parameter
-		// fetch('./data/roles.json')
-		// 	// Your code for handling the data you get from the API
-		// 	.then(function(myResponse) {
-		// 		return roles = myResponse;
-		// 	});
+		//this.roles = this.getMyRoles();
 
-		/* fetch('./data/roles.json') 
-			// Your code for handling the data you get from the API
-			.then(function() {
-				
-			}) */
-
-		/* 	this.rolesResponse = await fetch('./data/roles.json');
-		this.roles=await Response.json(); */
-
-		//	console.log('roles', roles);
+		//	this.roles = rolesFromService;
+		// console.log('rolesFromService', this.roles);
 
 		//för övre delen av appen
 		this.booklist = [
@@ -101,11 +95,15 @@ export class Booklist {
 		//console.log(this);
 	} //constructor ends
 
-	/* async getMyRoles() {
-		this.rolesResponse = await fetch('./data/roles.json');
-		this.myroles = await Response.json();
+	async getMyRoles() {
+		const rolesResponse = await fetch('./data/roles.json');
+		const myroles = await rolesResponse.json();
+		console.log('roles', myroles);
 		return myroles;
-	} */
+
+		// Call the fetch function passing the url of the API as a parameter
+		// Your code for handling the data you get from the API
+	}
 
 	toogleView(expanded) {
 		this.expanded = !this.expanded;

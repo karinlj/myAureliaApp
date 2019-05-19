@@ -1,10 +1,13 @@
+//import rolesFromService from './services/roles-service';
+import { AccessPolicy } from './services/access-policy';
+import { inject } from 'aurelia-framework';
+
+@inject(AccessPolicy)
 export class App {
-	constructor() {
-		this.user = localStorage.getItem('userMode');
-		this.roles = {
-			hradmin: ['seeInputs', 'seeHeading'],
-			coworker: ['seeBooklist', 'seeHeading'],
-		};
+	constructor(accessPolicy) {
+		this.accessPolicy = accessPolicy;
+		/* 	this.user = localStorage.getItem('userMode');
+		this.roles = rolesFromService; */
 	}
 
 	configureRouter(config, router) {
@@ -17,7 +20,8 @@ export class App {
 				title: 'Home',
 				nav: true,
 				//this.user == 1
-				moduleId: this.roles[this.user].includes('seeInputs')
+				// 	moduleId: this.roles[this.user].includes('seeInputs')
+				moduleId: this.accessPolicy.showOrhide('seeHrFront')
 					? PLATFORM.moduleName('./modules/home/home')
 					: PLATFORM.moduleName('./modules/todoList/todo-list'),
 			},
