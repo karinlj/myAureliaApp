@@ -23,7 +23,8 @@ To run
 * aurelia.js
 * Less
 * Bootstrap 4
-## Acknowledgments
+
+### Acknowledgments
 
 Traversy Media
 ```https://www.youtube.com/watch?v=DZg6UfS5zYg&t=250s```
