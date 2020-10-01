@@ -1,20 +1,15 @@
-# `my-aurelia-app`
+# my-aurelia-app
 
-This project is bootstrapped by [aurelia-cli](https://github.com/aurelia/cli).
-For more information, go to https://aurelia.io/docs/cli/webpack
+### Description
+Aurelia App - exploring aurelia.js
 
-
-## Description
-Aurelia App - Select boxes
-
-## Prerequisites
+### Prerequisites
 NodeJS
 
-## Installation
+### Installation
 To clone
 
-```git clone https://github.com/karinlj/myAureliaApp.git.git```
-
+```git clone https://github.com/karinlj/myAureliaApp.git```
 
 To install
 
@@ -22,12 +17,15 @@ To install
 
 To run
 
-`npx au run`, then open `http://localhost:8080`
+`au run`, then open `http://localhost:8080`
 
-## Inspiration
+### Built With
+* aurelia.js
+* Less
+* Bootstrap 4
+## Acknowledgments
 
 Traversy Media
-
 ```https://www.youtube.com/watch?v=DZg6UfS5zYg&t=250s```
 
 

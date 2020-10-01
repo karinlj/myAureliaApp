@@ -1,69 +1,110 @@
 .booklistOne-section,
 booklistTwo-section,
 input-section {
-	padding-bottom: 5rem;
+  padding-bottom: 5rem;
 }
 
 .action-btn {
-	color: #fff;
-	&:hover {
-		opacity: 0.75;
-		color: #fff;
-	}
-	&:active {
-		color: #fff;
-	}
-	&:focus {
-		color: #fff;
-	}
+  color: #fff;
+
+  &:hover {
+    opacity: 0.75;
+    color: #fff;
+  }
+
+  &:active {
+    color: #fff;
+  }
+
+  &:focus {
+    color: #fff;
+  }
 }
+
 .action-btn.delete {
-	background: #e60000;
-	border-color: #e60000;
-	float: right;
+  background: #e60000;
+  border-color: #e60000;
+  float: right;
 }
+
 .action-btn.add {
-	background: #339933;
-	border-color: #339933;
+  background: #339933;
+  border-color: #339933;
 }
 
 .error-message {
-	padding: 6px 10px;
-	background: #e60000;
-	color: #fff;
-	margin-bottom: 1.5rem;
-	border-radius: 4px;
-	//transition: all 1s ease-in-out;
-	p {
-		margin-bottom: 0;
-	}
+  padding: 6px 10px;
+  background: #e60000;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+
+  //transition: all 1s ease-in-out;
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .input-section {
-	max-width: 100%;
-	margin-bottom: 10rem;
-	form {
-		display: flex;
-		//justify-content: space-around;
-		div {
-			margin-right: 2rem;
-			label {
-				display: block;
-			}
-			.input-container {
-			}
-		}
-	}
-	/* 	&*[readonly] {
+  max-width: 100%;
+  margin-bottom: 10rem;
+
+  form {
+    display: flex;
+
+    //justify-content: space-around;
+    div {
+      margin-right: 2rem;
+
+      label {
+        display: block;
+      }
+
+      .input-container {}
+    }
+  }
+
+  /* 	&*[readonly] {
 		background-color: blue;
 	} */
 }
+
 input:read-only {
-	//background-color: yellow;
-	border: none;
+  //background-color: yellow;
+  border: none;
 }
 
 // input:-moz-read-only {
 // 	/* For Firefox */
 // 	background-color: yellow;
 // }
+
+
+.radiobtns_section {
+  display: flex;
+
+  label {
+    margin-right: 0.5rem;
+
+    /* HIDE RADIO */
+    [type=radio] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    /* IMAGE STYLES */
+    [type=radio]+i {
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 4px;
+    }
+
+    /* CHECKED STYLES */
+    [type=radio]:checked+i {
+      //outline: 1px solid lightgrey;
+      background: lightgrey;
+    }
+  }
+}

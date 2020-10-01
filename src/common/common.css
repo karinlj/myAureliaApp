@@ -247,6 +247,29 @@ input-section {
 input:read-only {
   border: none;
 }
+.radiobtns_section {
+  display: flex;
+}
+.radiobtns_section label {
+  margin-right: 0.5rem;
+  /* HIDE RADIO */
+  /* IMAGE STYLES */
+  /* CHECKED STYLES */
+}
+.radiobtns_section label [type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.radiobtns_section label [type=radio] + i {
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+.radiobtns_section label [type=radio]:checked + i {
+  background: lightgrey;
+}
 .single-book {
   display: flex;
   align-items: center;

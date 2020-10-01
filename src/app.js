@@ -19,11 +19,12 @@ export class App {
 				name: 'home',
 				title: 'Home',
 				nav: true,
+				moduleId: PLATFORM.moduleName('./modules/home/home'),
 				//this.user == 1
 				// 	moduleId: this.roles[this.user].includes('seeInputs')
-				moduleId: this.accessPolicy.showOrhide('seeHrFront')
-					? PLATFORM.moduleName('./modules/home/home')
-					: PLATFORM.moduleName('./modules/todoList/todo-list'),
+				// moduleId: this.accessPolicy.showOrhide('seeHrFront')
+				// 	? PLATFORM.moduleName('./modules/home/home')
+				// 	: PLATFORM.moduleName('./modules/todoList/todo-list'),
 			},
 			{
 				route: 'todos',
